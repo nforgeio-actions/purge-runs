@@ -13,8 +13,8 @@
 # NOTE: You must run the [setup-node] action before this to ensure that
 #       Node.js is configured on the runner.
 
-name: clean
-description: "Clears the runner state including the GITHUB_WORKSPACE directory"
+name: purge-runs
+description: "Deletes workflow runs older than the specified number of days"
 runs:
   using: node12
   main: action.js
