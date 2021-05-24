@@ -30,7 +30,23 @@ Push-Location $ncPowershell | Out-Null
 . ./includes.ps1
 Pop-Location | Out-Null
 
-# Delete the old runs.
+# Fetch the inputs
 
-# $todo(jefflill):
+$maxAgeDays = [int]$(Get-ActionInput "max-age-days" $true)
 
+if ($maxAgeDays < 0)
+{
+    $maxAgeDays = 0
+}
+
+try
+{
+    # Delete the old runs.
+
+    # $todo(jefflill):
+}
+catch
+{
+    Write-ActionException $_
+    exit 1
+}
