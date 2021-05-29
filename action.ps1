@@ -46,7 +46,7 @@ try
     # Delete the old runs using the [gh-tool.exe] included in
     # the neonFORGE repo.
 
-    gh-tool action run delete $repo $workflow --age-in-days=$maxAgeDays
+    gh-tool action run delete $repo $workflow --max-age-days=$maxAgeDays
 }
 catch
 {
