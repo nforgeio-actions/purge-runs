@@ -16,6 +16,12 @@
 name: purge-runs
 description: "Deletes workflow runs older than the specified number of days"
 inputs:
+  repo:
+    description: "Specifies the GitHub repository hosting the workflow, like: nforgeio/neonCLOUD"
+    required: true
+  workflow:
+    description: "Optionally specifies the workflow name, otherwise all workflows will be pruned"
+    required: false
   max-age-days:
     description: "Runs older than this will be deleted"
     required: true

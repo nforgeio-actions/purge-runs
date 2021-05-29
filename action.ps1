@@ -32,18 +32,21 @@ Pop-Location | Out-Null
 
 # Fetch the inputs
 
-$maxAgeDays = [int]$(Get-ActionInput "max-age-days" $true)
+$repo       = Get-ActionInput      "repo"         $true
+$workflow   = Get-ActionInput      "workflow"     $false
+$maxAgeDays = Get-ActionInputInt32 "max-age-days" $true
 
-if ($maxAgeDays < 0)
+if ($maxAgeDays -lt 0)
 {
     $maxAgeDays = 0
 }
 
 try
 {
-    # Delete the old runs.
+    # Delete the old runs using the [gh-tool.exe] included in
+    # the neonFORGE repo.
 
-    # $todo(jefflill):
+    gh-tool action run delete $repo $workflow --age-in-days=$maxAgeDays
 }
 catch
 {
