@@ -43,7 +43,7 @@ if ($maxAgeDays -lt 0)
 
 try
 {
-    # Delete the old runs using the [gh-tool.exe] included in
+    # Delete the old runs using the pre-built [gh-tool.exe] included in
     # the neonFORGE repo.
 
     $result = Invoke-CaptureStreams "gh-tool action run delete $repo $workflow --max-age-days=$maxAgeDays" -interleave
