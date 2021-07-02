@@ -48,6 +48,10 @@ try
 
     $result = Invoke-CaptureStreams "gh-tool action run delete $repo $workflow --max-age-days=$maxAgeDays" -interleave
 
+    Log-DebugLine "********"
+    Log-DebugLine $result.stdout
+    Log-DebugLine "********"
+
     Write-ActionOutput $result.stdout
 }
 catch
